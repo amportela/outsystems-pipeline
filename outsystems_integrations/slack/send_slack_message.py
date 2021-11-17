@@ -37,7 +37,7 @@ def send_slack_message(slack_hook: str, slack_channels: list, pipeline_type: str
                 "mrkdwn_in": ["text"]
             }]
         }
-        response = requests.post(slack_hook, json.dumps(postData), None)
+        response = requests.post(slack_hook, json.dumps(postData), None, verify=False)
         if response.status_code == 200:
             print("Message sent to slack channel {} successfully...".format(channel))
         else:
